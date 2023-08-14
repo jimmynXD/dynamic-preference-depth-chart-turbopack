@@ -1,6 +1,7 @@
 {
   "name": "depth-chart-mono",
   "version": "0.0.0",
+  "description": "Dynamic Preference Depth Chart",
   "private": true,
   "scripts": {
     "bootstrap": "pnpm install && husky install",
