@@ -1,0 +1,5 @@
+{
+  "extends": "@local/tsconfig/next-app.json",
+  "include": ["**/*.ts", "**/*.tsx", "next.config.mjs"],
+  "exclude": ["node_modules"]
+}

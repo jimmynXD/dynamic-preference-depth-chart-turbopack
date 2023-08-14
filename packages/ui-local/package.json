@@ -1,0 +1,65 @@
+{
+  "name": "@local/ui",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./styles.css": "./dist/index.css"
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:sb": "storybook build",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "deploy": "node ./scripts/deploy.js",
+    "dev": "concurrently \"pnpm run dev:ui\" \"pnpm run dev:sb\"",
+    "dev:sb": "pnpm run storybook",
+    "dev:ui": "tsup --watch",
+    "lint": "eslint \"components/**/*.ts*\"",
+    "preview:sb": "pnpm dlx http-server ./storybook-static",
+    "storybook": "storybook dev -p 6006 --ci"
+  },
+  "devDependencies": {
+    "@geometricpanda/storybook-addon-badges": "^2.0.0",
+    "@local/eslint-config": "workspace:*",
+    "@local/tsconfig": "workspace:*",
+    "@storybook/addon-essentials": "^7.0.9",
+    "@storybook/addon-interactions": "^7.0.9",
+    "@storybook/addon-links": "^7.0.9",
+    "@storybook/blocks": "^7.0.9",
+    "@storybook/manager-api": "^7.0.9",
+    "@storybook/nextjs": "^7.0.9",
+    "@storybook/react": "^7.0.9",
+    "@storybook/testing-library": "^0.1.0",
+    "@storybook/theming": "^7.0.9",
+    "@types/node": "^18",
+    "@types/react": "^18.2.20",
+    "@types/react-dom": "^18.2.7",
+    "concurrently": "^8.0.1",
+    "esbuild": "^0.17.18",
+    "esbuild-sass-plugin": "^2.9.0",
+    "eslint": "^8.41.0",
+    "gh-pages": "^5.0.0",
+    "next": "^13.4.13",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.9",
+    "tsup": "^6.7.0",
+    "typescript": "^5.1.6"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@local/eslint-config"
+    ]
+  }
+}
